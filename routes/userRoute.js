@@ -10,6 +10,9 @@ const {SESSION_SECRET} = process.env;
 
 user_route.use(session({secret:SESSION_SECRET}));
 
+const cookieParser = require('cookie-parser');
+user_route.use(cookieParser());
+
 
 
 user_route.use(bodyParser.json());
