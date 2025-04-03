@@ -8371,4 +8371,36 @@ a[data-toggle="collapse"] {
 .fa-edit{
   color:blue;
 }
+.addMemberTable{
+  overflow-y:scroll;
+  height: 100px;
+  width: 100%;
+}
 
+#add-member-error{
+  color:red;
+}
+
+/*-----------------group chat css-------------------*/
+
+#group-chat-container{
+  background-color: lightblue;
+  width: 100%;
+  height: 400px;
+  overflow: scroll;
+}
+.group-chat-section{
+  display: none;
+}
+
+/*  group chat message user css  */
+
+.user-data{
+  font-size: 10px;
+}
+.user-chat-image{
+  width: 20px;
+  height: 20px;
+  border-radius: 100px;
+  border: 1px solid red;
+}

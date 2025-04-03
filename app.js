@@ -60,6 +60,21 @@ usp.on('connection', async function(socket){
         socket.broadcast.emit('chatMessageUpdated',data);
     });
 
+    //new group chat added
+    socket.on('newGroupChat',function(data){
+        socket.broadcast.emit('loadNewGroupChat', data);//broadcast group chat onject
+    });
+
+    //delete group chat 
+    socket.on('groupChatDeleted',function(id){
+        socket.broadcast.emit('groupChatMessageDeleted',id);
+    });
+
+    // group chat updated
+    socket.on('groupChatUpdated',function(data){
+        socket.broadcast.emit('groupChatMessageUpdated',data);
+    });
+
 });
 
 http.listen(3000,()=>{
