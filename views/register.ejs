@@ -1,24 +1,110 @@
-<h1>Register</h1>
+<style>
 
-<form action="" method="POST" enctype="multipart/form-data">
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
 
-    <input type="text" name="name" placeholder="Enter name" required>
-    <br><br>
-    <input type="email" name="email" placeholder="Enter email" required>
-    <br><br>
-    <input type="file" name="image" required>
-    <br><br>
-    <input type="password" name="password" placeholder="Enter password" required>
-    <br><br>
-    <input type="submit" value="Register">
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(135deg, #4b79a1, #283e51);
+}
 
-</form>
+.register-container {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+    width: 380px;
+    text-align: center;
+}
+
+h1 {
+    color: #444;
+    margin-bottom: 15px;
+}
+
+.error-message {
+    color: green;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.input-field, .file-input {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+.input-field:focus, .file-input:focus {
+    border-color: #4b79a1;
+    outline: none;
+    box-shadow: 0 0 8px rgba(75, 121, 161, 0.5);
+}
+
+.register-btn {
+    width: 100%;
+    padding: 12px;
+    margin-top: 15px;
+    background: linear-gradient(135deg, #4b79a1, #283e51);
+    border: none;
+    color: white;
+    font-size: 18px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.register-btn:hover {
+    background: linear-gradient(135deg, #3b6c91, #1f3244);
+}
+
+.login-link {
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+.login-link a {
+    color: #4b79a1;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.login-link a:hover {
+    text-decoration: underline;
+}
+
+
+</style>
+
+
+
+
+<div class="register-container">
+    <h1>Register</h1>
+
+    <% if (typeof message !== 'undefined') { %>
+        <p class="error-message"><%= message %></p>
+    <% } %>
+
+    <form action="/register" method="POST" enctype="multipart/form-data">
+        <input type="text" name="name" class="input-field" placeholder="Enter name" required>
+        <input type="email" name="email" class="input-field" placeholder="Enter email" required>
+        <input type="file" name="image" class="file-input" required>
+        <input type="password" name="password" class="input-field" placeholder="Enter password" required>
+        <input type="submit" class="register-btn" value="Register">
+    </form>
+
+    <p class="login-link">Already have an account? <a href="/login">Login</a></p>
+</div>
  
 
-<%
-     if(typeof message !== 'undefined'){
-        %>
-            <p style="color: green;"> <%= message %> </p>
-        <%
-     }
-%>

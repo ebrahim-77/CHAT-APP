@@ -1,24 +1,105 @@
-<h1>Login</h1>
 
 
-<%
-    if(typeof message !== 'undefined'){
-        %>
 
-           <h4 style="color: red;"> <%= message %> </h4>
-        <%
-    }
+<style>
+    * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
 
-%>
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(135deg, #4b79a1, #283e51);
+}
 
-<form action="" method="post">
+.login-container {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+    width: 350px;
+    text-align: center;
+}
 
-    <input type="email" name="email" placeholder="Enter Email">
-    <br><br>
-    <input type="password" name="password" placeholder="Enter password">
-    <br><br>
-    <input type="submit" value="login">
-    <br><br>
-    
+h1 {
+    color: #444;
+    margin-bottom: 15px;
+}
 
-</form>
+.error-message {
+    color: red;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.input-field {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+.input-field:focus {
+    border-color: #4b79a1;
+    outline: none;
+    box-shadow: 0 0 8px rgba(75, 121, 161, 0.5);
+}
+
+.login-btn {
+    width: 100%;
+    padding: 12px;
+    margin-top: 15px;
+    background: linear-gradient(135deg, #4b79a1, #283e51);
+    border: none;
+    color: white;
+    font-size: 18px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.login-btn:hover {
+    background: linear-gradient(135deg, #3b6c91, #1f3244);
+}
+
+.register-link {
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+.register-link a {
+    color: #4b79a1;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.register-link a:hover {
+    text-decoration: underline;
+}
+
+
+</style>
+
+<div class="login-container">
+    <h1>Login</h1>
+
+    <% if (typeof message !== 'undefined') { %>
+        <p class="error-message"><%= message %></p>
+    <% } %>
+
+    <form action="" method="POST">
+        <input type="email" name="email" class="input-field" placeholder="Enter Email" required>
+        <input type="password" name="password" class="input-field" placeholder="Enter Password" required>
+        <input type="submit" class="login-btn" value="Login">
+    </form>
+
+    <p class="register-link">Don't have an account? <a href="/register">Register here</a></p>
+</div>
